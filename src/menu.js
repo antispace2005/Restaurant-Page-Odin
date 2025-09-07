@@ -14,25 +14,30 @@ export default (() => {
     constructor(title) {
       this.title = title;
       this.list = [];
+      this.listContainer = document.createElement("div");
       this.listElement = document.createElement("ul");
-      this.listElement.id = "menuList";
+      this.listContainer.classList = "boxed";
+      this.listContainer.appendChild(this.listElement);
+      this.listElement.classList = "menuList";
     }
     addItem(name, price, description, photo) {
       let item = {
         name: name,
-        price: price,
         description: description,
+        price: price,
+
         photo: photo,
       };
       this.list.push(item);
     }
 
     getList() {
+      const titleElement = document.createElement("div");
+      titleElement.classList = "label";
+      titleElement.textContent = this.title;
+      this.listElement.appendChild(titleElement);
+
       for (const item of this.list) {
-        const titleElement = document.createElement("div");
-        titleElement.classList = "menuTitle";
-        titleElement.textContent = this.title;
-        this.listElement.appendChild(titleElement);
         const itemElement = document.createElement("li");
 
         for (const key of Object.keys(item)) {
@@ -45,7 +50,7 @@ export default (() => {
         }
         this.listElement.appendChild(itemElement);
       }
-      return this.listElement;
+      return this.listContainer;
     }
   }
 
