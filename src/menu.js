@@ -2,6 +2,13 @@ export default (() => {
   const content = document.createElement("div");
   content.id = "content";
 
+  // Title
+  const SLOGAN = "Menu";
+  const sloganElement = document.createElement("div");
+  sloganElement.classList = "title";
+  sloganElement.textContent = SLOGAN;
+  content.appendChild(sloganElement);
+
   //menu list maker
   class listMaker {
     constructor(title) {

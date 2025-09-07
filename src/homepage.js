@@ -5,7 +5,7 @@ export default (() => {
   //slogan
   const SLOGAN = "Home of the Legendary White Sauce";
   const sloganElement = document.createElement("div");
-  sloganElement.classList = "slogan";
+  sloganElement.classList = "title";
   sloganElement.textContent = SLOGAN;
   content.appendChild(sloganElement);
   //headline
